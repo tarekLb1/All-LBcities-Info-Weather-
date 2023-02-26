@@ -145,7 +145,7 @@
 
         function listusers() {
             document.getElementById('users_list').innerHTML = "";
-            fetch('http://localhost:3030/users')
+            fetch('https://usersinfoapi2.onrender.com/users')
                 .then(samir => samir.json())
                 .then(samir2 => {
                     samir2.forEach(element => {
@@ -171,7 +171,7 @@
             var namevalue = document.getElementById('textname').value;
             var phonevalue = document.getElementById('textphone').value;
 
-            fetch('http://localhost:3030/adduser', {
+            fetch('https://usersinfoapi2.onrender.com/adduser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
