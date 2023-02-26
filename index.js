@@ -25,7 +25,8 @@
             })
 
         function displayTable() {
-            document.getElementById('tr').innerHTML = '';
+            document.getElementById('tr11').innerHTML = '';
+            document.getElementById('tr22').innerHTML = '';
             document.getElementById('tr2').innerHTML = '';
             document.getElementById('tr3').innerHTML = '';
             document.getElementById('city').innerHTML = '';
@@ -45,21 +46,48 @@
 
                     document.getElementById('city').innerHTML = data[0].Location_Name_En;
 
+                    
                     var td1 = document.createElement('td');
-                    td1.innerHTML = data[0].Pcode;
-                    document.getElementById('tr').appendChild(td1);
+                    td1.innerHTML = data[0].Elevation + "m";
+                    document.getElementById('tr11').appendChild(td1)
+
+                    var td2 = document.createElement('td');
+                    td2.innerHTML = data[0].Governorate;
+                    document.getElementById('tr11').appendChild(td2);
 
                     var td3 = document.createElement('td');
-                    td3.innerHTML = data[0].Governorate;
-                    document.getElementById('tr').appendChild(td3);
+                    td3.innerHTML = data[0].CAS_NAME_Ar;
+                    document.getElementById('tr11').appendChild(td3);
 
                     var td4 = document.createElement('td');
-                    td4.innerHTML = data[0].District;
-                    document.getElementById('tr').appendChild(td4);
+                    td4.innerHTML = JSON.parse(data[0].Latitude).toFixed(3) + " & " + JSON.parse(data[0].Longitude).toFixed(3);
+                    document.getElementById('tr11').appendChild(td4);
 
                     var td5 = document.createElement('td');
-                    td5.innerHTML = JSON.parse(data[0].Latitude).toFixed(3) + " & " + JSON.parse(data[0].Longitude).toFixed(3);
-                    document.getElementById('tr').appendChild(td5);
+                    td5.innerHTML = data[0].Pcode;
+                    document.getElementById('tr11').appendChild(td5);
+
+                   
+
+                    var td6 = document.createElement('td');
+                    td6.innerHTML = data[0].Municipality_Name_EN;
+                    document.getElementById('tr22').appendChild(td6)
+                    
+                    var td7 = document.createElement('td');
+                    td7.innerHTML = data[0].Municipality_Name_AR;
+                    document.getElementById('tr22').appendChild(td7)
+
+                    var td8 = document.createElement('td');
+                    td8.innerHTML = data[0].Municipality_Phone;
+                    document.getElementById('tr22').appendChild(td8)
+
+                    var td9 = document.createElement('td');
+                    td9.innerHTML = data[0].Municipality_Address;
+                    document.getElementById('tr22').appendChild(td9)
+
+                    
+
+
 
                     var lanlon = 'latitude=' + data[0].Latitude + '&longitude=' + data[0].Longitude;
 
@@ -88,29 +116,29 @@
                             }
                             console.log(`Current Time object index: ${index}`)
 
-                            var td7 = document.createElement('td');
-                            td7.innerHTML = json.timezone + ' ' + json.hourly.time[index];
-                            document.getElementById('tr2').appendChild(td7);
-
-                            var td8 = document.createElement('td');
-                            td8.innerHTML = json.hourly.temperature_2m[index] + ' °C';
-                            document.getElementById('tr2').appendChild(td8);
-
-                            var td9 = document.createElement('td');
-                            td9.innerHTML = json.hourly.windspeed_10m[index] + ' km/h';
-                            document.getElementById('tr2').appendChild(td9);
-                            //------------------------------------------------------------
                             var td10 = document.createElement('td');
-                            td10.innerHTML = json.timezone + ' ' + json.hourly.time[index+24];
-                            document.getElementById('tr3').appendChild(td10);
+                            td10.innerHTML = json.timezone + ' ' + json.hourly.time[index];
+                            document.getElementById('tr2').appendChild(td10);
 
                             var td11 = document.createElement('td');
-                            td11.innerHTML = json.hourly.temperature_2m[index+24] + ' °C';
-                            document.getElementById('tr3').appendChild(td11);
+                            td11.innerHTML = json.hourly.temperature_2m[index] + ' °C';
+                            document.getElementById('tr2').appendChild(td11);
 
                             var td12 = document.createElement('td');
-                            td12.innerHTML = json.hourly.windspeed_10m[index+24] + ' km/h';
-                            document.getElementById('tr3').appendChild(td12);
+                            td12.innerHTML = json.hourly.windspeed_10m[index] + ' km/h';
+                            document.getElementById('tr2').appendChild(td12);
+                            //------------------------------------------------------------
+                            var td13 = document.createElement('td');
+                            td13.innerHTML = json.timezone + ' ' + json.hourly.time[index+24];
+                            document.getElementById('tr3').appendChild(td13);
+
+                            var td14 = document.createElement('td');
+                            td14.innerHTML = json.hourly.temperature_2m[index+24] + ' °C';
+                            document.getElementById('tr3').appendChild(td14);
+
+                            var td15 = document.createElement('td');
+                            td15.innerHTML = json.hourly.windspeed_10m[index+24] + ' km/h';
+                            document.getElementById('tr3').appendChild(td15);
                         })
 
                 })
