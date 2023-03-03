@@ -97,25 +97,38 @@
                         .then(json => {
                             console.log(json)
 
+                            // const now = new Date();
+                            // const hours = now.getHours();
+                            // const dayOfMonth = now.getDate();
+                            // const monthIndex = now.getMonth();
+                            // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                            // const year = now.getFullYear();
+                            // var currenttimeanddata = `${year}-0${monthIndex + 1}-0${dayOfMonth}T${hours}:00`
+                            // console.log(`Current Time & Date: ${currenttimeanddata}`)
+
+                            // const timedata = json.hourly.time;
+
+                            // for (let i = 0; i < timedata.length; i++) {
+                            //     if (timedata[i] === currenttimeanddata) {
+                            //         var index = i;
+
+                            //         break;
+                            //     }
+                            // }
+                            //console.log(`Current Time object index: ${index}`)
+
+                            //Fix the Problem
+
                             const now = new Date();
-                            const hours = now.getHours();
-                            const dayOfMonth = now.getDate();
-                            const monthIndex = now.getMonth();
-                            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                            const year = now.getFullYear();
-                            var currenttimeanddata = `${year}-0${monthIndex + 1}-0${dayOfMonth}T${hours}:00`
-                            console.log(`Current Time & Date: ${currenttimeanddata}`)
+                    
+                    const currenttimeanddata = now.toISOString().slice(0, 13) + ":00";
+                    console.log(`Current Time & Date: ${currenttimeanddata}`);
 
-                            const timedata = json.hourly.time;
+                    const timedata = json.hourly.time;
 
-                            for (let i = 0; i < timedata.length; i++) {
-                                if (timedata[i] === currenttimeanddata) {
-                                    var index = i;
-
-                                    break;
-                                }
-                            }
-                            console.log(`Current Time object index: ${index}`)
+                    const index = timedata.findIndex((time) => time.slice(0, 13) + ":00" === currenttimeanddata);
+                    console.log(`Current Time object index: ${index}`)
+                            
 
                             var td10 = document.createElement('td');
                             td10.innerHTML = json.timezone + ' ' + json.hourly.time[index];
