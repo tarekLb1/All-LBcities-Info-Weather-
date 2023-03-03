@@ -91,7 +91,8 @@
 
                     var lanlon = 'latitude=' + data[0].Latitude + '&longitude=' + data[0].Longitude;
 
-                    fetch(`https://api.open-meteo.com/v1/forecast?${lanlon}&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`)
+                    //api.open-zmeteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m
+                    fetch(`https://api.open-meteo.com/v1/forecast?${lanlon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`)
                         .then(response => response.json())
                         .then(json => {
                             console.log(json)
