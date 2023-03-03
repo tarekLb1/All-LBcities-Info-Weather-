@@ -103,7 +103,7 @@
                             const monthIndex = now.getMonth();
                             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                             const year = now.getFullYear();
-                            var currenttimeanddata = `${year}-0${monthIndex + 1}-${dayOfMonth}T${hours}:00`
+                            var currenttimeanddata = `${year}-0${monthIndex + 1}-0${dayOfMonth}T${hours}:00`
                             console.log(`Current Time & Date: ${currenttimeanddata}`)
 
                             const timedata = json.hourly.time;
