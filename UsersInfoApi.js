@@ -12,7 +12,7 @@ var ws = wb.Sheets["usersSheet"];
 var users = XLSX.utils.sheet_to_json(ws);
 
  app.use(cors({
-   origin: 'https://tareklb1.github.io'
+   origin: 'http://127.0.0.1:5502'
  }));
 
 app.get('/users', function (req, res) {
