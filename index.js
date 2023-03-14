@@ -96,35 +96,7 @@
                         .then(response => response.json())
                         .then(json => {
                             console.log(json)
-
-                            // const now = new Date();
-                            // const hours = now.getHours();
-                            // const dayOfMonth = now.getDate();
-                            // const monthIndex = now.getMonth();
-                            // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                            // const year = now.getFullYear();
-                            // var currenttimeanddata = `${year}-0${monthIndex + 1}-0${dayOfMonth}T${hours}:00`
-                            // console.log(`Current Time & Date: ${currenttimeanddata}`)
-
-                            // const timedata = json.hourly.time;
-
-                            // for (let i = 0; i < timedata.length; i++) {
-                            //     if (timedata[i] === currenttimeanddata) {
-                            //         var index = i;
-
-                            //         break;
-                            //     }
-                            // }
-                            //console.log(`Current Time object index: ${index}`)
-
-                            //Fix the Problem
-
-                    //         const now = new Date();
-                    //         console.log(now)
-                    
-                    // const currenttimeanddata = now.toISOString().slice(0, 13) + ":00";
-                    // console.log(`Current Time & Date: ${currenttimeanddata}`);
-
+                            
                     const date = new Date();
                     const year = date.getFullYear();
                     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -136,13 +108,7 @@
                     const localDateString = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}`;
                     const currenttimeanddata= localDateString.slice(0, 13) + ":00";
                     console.log(`Current Time & Date: ${currenttimeanddata}`);
-
-
                     
-                    
-
-                    
-
                     const timedata = json.hourly.time;
 
                     const index = timedata.findIndex((time) => time.slice(0, 13) + ":00" === currenttimeanddata);
