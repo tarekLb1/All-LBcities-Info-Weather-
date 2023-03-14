@@ -3,7 +3,7 @@
         fetch('https://lbcities-api.onrender.com/LBcities')
             .then(response => response.json())
             .then(json => {
-                //console.log(json)
+                console.log(json)
                 var citiesdup = json.map(city => city.District);
                 var citiesnodup = citiesdup.filter((item, index) => citiesdup.indexOf(item) == index).sort();
 
@@ -95,7 +95,7 @@
                     fetch(`https://api.open-meteo.com/v1/forecast?${lanlon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`)
                         .then(response => response.json())
                         .then(json => {
-                            //console.log(json)
+                            console.log(json)
 
                             // const now = new Date();
                             // const hours = now.getHours();
@@ -120,6 +120,7 @@
                             //Fix the Problem
 
                             const now = new Date();
+                            console.log(now)
                     
                     const currenttimeanddata = now.toISOString().slice(0, 13) + ":00";
                     console.log(`Current Time & Date: ${currenttimeanddata}`);
