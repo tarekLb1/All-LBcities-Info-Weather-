@@ -12,7 +12,7 @@ var ws = wb.Sheets["usersSheet"];
 var users = XLSX.utils.sheet_to_json(ws);
 
  app.use(cors({
-   origin: 'https://tareklb1.github.io/All-LBcities-Info-Weather-/'
+   origin: 'https://tareklb1.github.io'
  }));
 
 app.get('/users', function (req, res) {
